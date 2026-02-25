@@ -17,6 +17,36 @@ personal_assistant/
 └── __init__.py           # Package entry point
 ```
 
+```mermaid
+flowchart TD
+    User([User]) --> RootAgent
+
+    subgraph RootAgent["agent.py — Root Agent"]
+        direction TB
+        A[Orchestrator LLM]
+    end
+
+    subgraph SubAgents["custom_agents.py — Sub-Agents"]
+        B[google_search_agent\nAgentTool]
+    end
+
+    subgraph CustomFunctions["custom_functions.py — FunctionTools"]
+        C[get_exchange_rate\nFunctionTool]
+    end
+
+    subgraph ThirdParty["third_party_tools.py — Third-Party Tools"]
+        D[langchain_wikipedia_tool\nLangchainTool]
+    end
+
+    A -->|delegates| B
+    A -->|delegates| C
+    A -->|delegates| D
+
+    B -->|Google Search API| Internet([Internet])
+    C -->|Frankfurter API| Frankfurter([Frankfurter API])
+    D -->|Wikipedia API| Wikipedia([Wikipedia])
+```
+
 ### Tools & Capabilities
 
 | Tool | Type | Description |
@@ -85,6 +115,36 @@ personal_assistant/
 ├── custom_functions.py   # Funciones Python personalizadas como herramientas
 ├── third_party_tools.py  # Integraciones con herramientas de LangChain y terceros
 └── __init__.py           # Punto de entrada del paquete
+```
+
+```mermaid
+flowchart TD
+    Usuario([Usuario]) --> AgenteRaiz
+
+    subgraph AgenteRaiz["agent.py — Agente Raíz"]
+        direction TB
+        A[Orquestador LLM]
+    end
+
+    subgraph SubAgentes["custom_agents.py — Sub-Agentes"]
+        B[google_search_agent\nAgentTool]
+    end
+
+    subgraph FuncionesPersonalizadas["custom_functions.py — FunctionTools"]
+        C[get_exchange_rate\nFunctionTool]
+    end
+
+    subgraph HerramientasTerceros["third_party_tools.py — Herramientas de Terceros"]
+        D[langchain_wikipedia_tool\nLangchainTool]
+    end
+
+    A -->|delega| B
+    A -->|delega| C
+    A -->|delega| D
+
+    B -->|Google Search API| Internet([Internet])
+    C -->|Frankfurter API| Frankfurter([API Frankfurter])
+    D -->|Wikipedia API| Wikipedia([Wikipedia])
 ```
 
 ### Herramientas y Capacidades
