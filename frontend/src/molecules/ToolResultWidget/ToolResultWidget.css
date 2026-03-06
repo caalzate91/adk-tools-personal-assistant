@@ -1,0 +1,49 @@
+.tool-result {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.tool-result--exchange_rate {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.tool-result__rate {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.tool-result__currencies {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.tool-result__currency-code {
+  font-weight: var(--font-weight-medium);
+  background-color: #dcfce7;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.tool-result--wikipedia {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.tool-result--search {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+}
+
+.tool-result--unknown {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.tool-result__summary {
+  white-space: pre-wrap;
+}
