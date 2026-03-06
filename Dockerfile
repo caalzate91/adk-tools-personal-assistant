@@ -10,13 +10,15 @@ RUN apt-get update && apt-get install -y \
 # Install dependencies
 RUN pip install google-adk langchain-community wikipedia
 
-# Copy application code
+# Copy application code into an agent directory
+WORKDIR /app/personal_assistant
 COPY agent.py ./
 COPY custom_agents.py ./
 COPY custom_functions.py ./
 COPY third_party_tools.py ./
 COPY __init__.py ./
 
+WORKDIR /app
 # Expose ADK server port
 EXPOSE 8000
 
