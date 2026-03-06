@@ -98,6 +98,39 @@ Or launch the interactive web UI:
 adk web
 ```
 
+### Web Application (React + Firebase)
+
+A full-featured React web application with Firebase authentication and conversation persistence is available in the `frontend/` directory.
+
+#### Quick Start with Docker 🐳
+
+The easiest way to run the complete application locally:
+
+1. **Add your Gemini API key** to `.env`:
+   ```bash
+   # Edit .env and add:
+   GOOGLE_API_KEY=your_gemini_api_key_here
+   ```
+
+2. **Enable Google Authentication** in Firebase Console:
+   ```bash
+   ./enable-google-auth.sh
+   ```
+   This opens the Firebase Console where you can enable Google Sign-in (required to fix the `auth/configuration-not-found` error).
+
+3. **Run with Docker Compose**:
+   ```bash
+   docker-compose up --build
+   ```
+
+4. **Access the app**:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8000
+
+📖 **Full Docker documentation**: See [DOCKER.md](DOCKER.md) for detailed instructions, troubleshooting, and production considerations.
+
+📱 **Development setup**: See [frontend/README.md](frontend/README.md) and [specs/001-react-assistant-webapp/quickstart.md](specs/001-react-assistant-webapp/quickstart.md) for local development without Docker.
+
 ---
 
 ## Español
@@ -197,6 +230,39 @@ O lanza la interfaz web interactiva:
 ```bash
 adk web
 ```
+
+### Aplicación Web (React + Firebase)
+
+Una aplicación web completa en React con autenticación de Firebase y persistencia de conversaciones está disponible en el directorio `frontend/`.
+
+#### Inicio Rápido con Docker 🐳
+
+La forma más fácil de ejecutar la aplicación completa localmente:
+
+1. **Agrega tu clave de API de Gemini** en `.env`:
+   ```bash
+   # Edita .env y agrega:
+   GOOGLE_API_KEY=tu_clave_api_gemini_aqui
+   ```
+
+2. **Habilita la Autenticación de Google** en la Consola de Firebase:
+   ```bash
+   ./enable-google-auth.sh
+   ```
+   Esto abre la Consola de Firebase donde puedes habilitar el inicio de sesión con Google (requerido para corregir el error `auth/configuration-not-found`).
+
+3. **Ejecuta con Docker Compose**:
+   ```bash
+   docker-compose up --build
+   ```
+
+4. **Accede a la aplicación**:
+   - Frontend: http://localhost:3000
+   - API Backend: http://localhost:8000
+
+📖 **Documentación completa de Docker**: Consulta [DOCKER.md](DOCKER.md) para instrucciones detalladas, solución de problemas y consideraciones de producción.
+
+📱 **Configuración de desarrollo**: Consulta [frontend/README.md](frontend/README.md) y [specs/001-react-assistant-webapp/quickstart.md](specs/001-react-assistant-webapp/quickstart.md) para desarrollo local sin Docker.
 
 ---
 

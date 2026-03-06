@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # ADK Backend Service
+  adk-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: adk-personal-assistant
+    ports:
+      - "8000:8000"
+    environment:
+      # Gemini API Key (required)
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      # OR use Vertex AI (uncomment if using Vertex AI instead)
+      # - GOOGLE_GENAI_USE_VERTEXAI=true
+      # - GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT}
+      # - GOOGLE_CLOUD_LOCATION=${GOOGLE_CLOUD_LOCATION}
+    networks:
+      - adk-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/list-apps"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_FIREBASE_API_KEY=${VITE_FIREBASE_API_KEY}
+        - VITE_FIREBASE_AUTH_DOMAIN=${VITE_FIREBASE_AUTH_DOMAIN}
+        - VITE_FIREBASE_PROJECT_ID=${VITE_FIREBASE_PROJECT_ID}
+        - VITE_FIREBASE_STORAGE_BUCKET=${VITE_FIREBASE_STORAGE_BUCKET}
+        - VITE_FIREBASE_MESSAGING_SENDER_ID=${VITE_FIREBASE_MESSAGING_SENDER_ID}
+        - VITE_FIREBASE_APP_ID=${VITE_FIREBASE_APP_ID}
+        - VITE_ADK_BASE_URL=http://localhost:8000
+    container_name: adk-assistant-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      adk-backend:
+        condition: service_healthy
+    networks:
+      - adk-network
+
+networks:
+  adk-network:
+    driver: bridge
