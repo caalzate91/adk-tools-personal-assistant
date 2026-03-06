@@ -23,4 +23,4 @@ WORKDIR /app
 EXPOSE 8000
 
 # Run the ADK server
-CMD ["adk", "web", "--host", "0.0.0.0", "."]
+CMD ["adk", "web", "--host", "0.0.0.0", "--allow_origins", "*", "."]
