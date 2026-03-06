@@ -209,3 +209,5 @@ __marimo__/
 .github/agents/
 .github/prompts/
 .github/skills/
+.firebaserc
+.env.example
