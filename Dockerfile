@@ -7,15 +7,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install uv
-RUN pip install uv
-
-# Copy Python dependencies
-COPY pyproject.toml ./
-COPY uv.lock* ./
-
-# Install Python dependencies
-RUN uv sync --no-dev
+# Install dependencies
+RUN pip install google-adk langchain-community wikipedia
 
 # Copy application code
 COPY agent.py ./
@@ -28,4 +21,4 @@ COPY __init__.py ./
 EXPOSE 8000
 
 # Run the ADK server
-CMD ["uv", "run", "adk", "web", "personal_assistant"]
+CMD ["adk", "web", "--host", "0.0.0.0", "."]
