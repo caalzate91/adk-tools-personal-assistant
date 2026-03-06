@@ -141,17 +141,17 @@ All test tasks MUST be committed and confirmed failing before the implementation
 
 ### Tests for User Story 4 (REQUIRED — Constitution Principle II)
 
-- [ ] T049 [P] [US4] Write component tests for `Icon` atom (renders accessible SVG, `aria-hidden="true"` when decorative, `aria-label` present when meaningful) in `frontend/src/__tests__/integration/atoms/Icon.test.tsx`
-- [ ] T050 [P] [US4] Write component tests for `AppHeader` organism (renders user display name, `Avatar`, sign-out `Button`; sign-out fires `useAuth.signOut`) in `frontend/src/__tests__/integration/organisms/AppHeader.test.tsx`
+- [x] T049 [P] [US4] Write component tests for `Icon` atom (renders accessible SVG, `aria-hidden="true"` when decorative, `aria-label` present when meaningful) in `frontend/src/__tests__/integration/atoms/Icon.test.tsx`
+- [x] T050 [P] [US4] Write component tests for `AppHeader` organism (renders user display name, `Avatar`, sign-out `Button`; sign-out fires `useAuth.signOut`) in `frontend/src/__tests__/integration/organisms/AppHeader.test.tsx`
 
 ### Implementation for User Story 4
 
-- [ ] T051 [P] [US4] Create `Icon` atom (SVG sprite wrapper, accepts `name` + `size` props, `aria-hidden` by default, overridable `aria-label`) in `frontend/src/atoms/Icon/Icon.tsx` + `frontend/src/atoms/Icon/Icon.css`
-- [ ] T052 [US4] Audit all interactive components and add missing ARIA attributes — `aria-label` on icon-only buttons, `role="status"` on `LoadingDots`, `aria-live="polite"` on `ConversationFeed`, `aria-invalid` on `TextInput` error state — across files in `frontend/src/atoms/`, `frontend/src/molecules/`, `frontend/src/organisms/`
-- [ ] T053 [P] [US4] Add responsive CSS breakpoints — 768 px (tablet) and 1024 px (desktop) — and `clamp()`-based font sizes to `frontend/src/templates/ChatTemplate/ChatTemplate.css`
-- [ ] T054 [P] [US4] Add responsive CSS breakpoints to `frontend/src/templates/LoginTemplate/LoginTemplate.css`
-- [ ] T055 [US4] Create `AppHeader` organism (user `Avatar` + display name + sign-out `Button`; keyboard focusable sign-out per FR-010) in `frontend/src/organisms/AppHeader/AppHeader.tsx` + `frontend/src/organisms/AppHeader/AppHeader.css`
-- [ ] T056 [US4] Wire `AppHeader` into the header slot of `ChatTemplate` in `frontend/src/templates/ChatTemplate/ChatTemplate.tsx`
+- [x] T051 [P] [US4] Create `Icon` atom (SVG sprite wrapper, accepts `name` + `size` props, `aria-hidden` by default, overridable `aria-label`) in `frontend/src/atoms/Icon/Icon.tsx` + `frontend/src/atoms/Icon/Icon.css`
+- [x] T052 [US4] Audit all interactive components and add missing ARIA attributes — `aria-label` on icon-only buttons, `role="status"` on `LoadingDots`, `aria-live="polite"` on `ConversationFeed`, `aria-invalid` on `TextInput` error state — across files in `frontend/src/atoms/`, `frontend/src/molecules/`, `frontend/src/organisms/`
+- [x] T053 [P] [US4] Add responsive CSS breakpoints — 768 px (tablet) and 1024 px (desktop) — and `clamp()`-based font sizes to `frontend/src/templates/ChatTemplate/ChatTemplate.css`
+- [x] T054 [P] [US4] Add responsive CSS breakpoints to `frontend/src/templates/LoginTemplate/LoginTemplate.css`
+- [x] T055 [US4] Create `AppHeader` organism (user `Avatar` + display name + sign-out `Button`; keyboard focusable sign-out per FR-010) in `frontend/src/organisms/AppHeader/AppHeader.tsx` + `frontend/src/organisms/AppHeader/AppHeader.css`
+- [x] T056 [US4] Wire `AppHeader` into the header slot of `ChatTemplate` in `frontend/src/templates/ChatTemplate/ChatTemplate.tsx`
 
 **Checkpoint**: Run `npx vitest run` — all US1–US4 tests pass. Tab order flows logically from header to input. Resize to 768 px — no overflow
 
@@ -162,12 +162,12 @@ All test tasks MUST be committed and confirmed failing before the implementation
 **Purpose**: End-to-end validation, production build verification, spec consistency, and developer experience.
 
 - [x] T057 [P] Back-port Firebase Auth + Firestore spec amendments — update Assumptions section in `specs/001-react-assistant-webapp/spec.md` to remove the two superseded assumptions and replace with accurate statements *(done 2026-03-06 — also fixed US2 AS3, FR-015, added FR-016, FR-017)*
-- [ ] T058 [P] Create `frontend/.env.local.example` documenting all required `VITE_FIREBASE_*` and `VITE_ADK_BASE_URL` environment variables (safe to commit — no secrets)
-- [ ] T059 Write Playwright e2e test for Google sign-in → send message → sign-out flow in `frontend/e2e/auth-flow.spec.ts`
-- [ ] T060 [P] Write Playwright e2e test covering the complete keyboard-navigable chat flow (load → Tab to input → type → Enter → response visible) verifying SC-008 in `frontend/e2e/chat-flow.spec.ts`
-- [ ] T061 Run `npm run lint && npm run type-check` in `frontend/` and resolve all remaining errors until both commands exit with code 0 (SC-005 / QG-1 / QG-2)
-- [ ] T062 Run `npm test -- --coverage` in `frontend/` and ensure ≥ 80% branch + line coverage threshold is met and enforced in CI config
-- [ ] T063 Run `npm run build` in `frontend/`, confirm zero build errors, run Playwright e2e suite against local stack, and update `specs/001-react-assistant-webapp/quickstart.md` where any step is inaccurate
+- [x] T058 [P] Create `frontend/.env.local.example` documenting all required `VITE_FIREBASE_*` and `VITE_ADK_BASE_URL` environment variables (safe to commit — no secrets)
+- [x] T059 Write Playwright e2e test for Google sign-in → send message → sign-out flow in `frontend/e2e/auth-flow.spec.ts`
+- [x] T060 [P] Write Playwright e2e test covering the complete keyboard-navigable chat flow (load → Tab to input → type → Enter → response visible) verifying SC-008 in `frontend/e2e/chat-flow.spec.ts`
+- [x] T061 Run `npm run lint && npm run type-check` in `frontend/` and resolve all remaining errors until both commands exit with code 0 (SC-005 / QG-1 / QG-2)
+- [x] T062 Run `npm test -- --coverage` in `frontend/` and ensure ≥ 80% branch + line coverage threshold is met and enforced in CI config
+- [x] T063 Run `npm run build` in `frontend/`, confirm zero build errors, run Playwright e2e suite against local stack, and update `specs/001-react-assistant-webapp/quickstart.md` where any step is inaccurate
 
 ---
 

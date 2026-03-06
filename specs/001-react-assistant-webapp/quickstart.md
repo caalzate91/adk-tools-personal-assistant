@@ -111,7 +111,7 @@ Open the URL in your browser. You should see the **Sign in with Google** login s
 cd frontend
 npm test            # run once
 npm run test:watch  # watch mode
-npm run coverage    # with coverage report (target: ≥ 80%)
+npm run test:coverage  # with coverage report (target: ≥ 80%)
 ```
 
 ### End-to-End Tests (Playwright)
